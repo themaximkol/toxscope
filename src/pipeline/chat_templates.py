@@ -41,16 +41,6 @@ def format_prompt(
 
     system_content = PERSONAS.get(persona_name, PERSONAS["neutral"])
 
-    if use_system_prompt:
-        messages = [
-            {"role": "system", "content": system_content},
-            {"role": "user", "content": user_message},
-        ]
-    else:
-        messages = [
-            {"role": "user", "content": f"{system_content}\n\n{user_message}"},
-        ]
-
     if has_chat_template(tokenizer):
 
         if use_system_prompt:
